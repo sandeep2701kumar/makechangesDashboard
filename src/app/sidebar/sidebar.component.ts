@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import {CommonProvider} from '../providers/commonprovider';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -24,8 +25,13 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+    hideSideBar = false;
 
-  constructor() { }
+
+    constructor(commonProvider: CommonProvider) {
+
+        this.hideSideBar = commonProvider.hideSideBar;
+    }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

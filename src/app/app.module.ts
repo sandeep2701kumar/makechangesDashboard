@@ -20,6 +20,7 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import {CommonProvider} from './providers/commonprovider';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     AppRoutingModule,
     LbdModule
   ],
-  providers: [],
+  providers: [CommonProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

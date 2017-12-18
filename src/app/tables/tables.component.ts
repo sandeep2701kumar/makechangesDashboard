@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {CommonProvider} from '../providers/commonprovider';
 
 declare interface TableData {
     headerRow: string[];
@@ -10,11 +11,16 @@ declare interface TableData {
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.css']
 })
-export class TablesComponent implements OnInit {
+export class TablesComponent implements AfterViewInit {
     public tableData1: TableData;
     public tableData2: TableData;
 
-  constructor() { }
+  constructor(commonProvider: CommonProvider) {
+      commonProvider.fire.subscribe(item => {alert('item'); });
+  }
+  ngAfterViewInit(){
+
+  }
 
   ngOnInit() {
       this.tableData1 = {
